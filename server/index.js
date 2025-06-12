@@ -37,6 +37,9 @@ app.use("/api/auth", authRoutes);
 const products = require("./routes/products");
 app.use("/api/products", products);
 
+const adminRoutes = require("./routes/admin");
+app.use("/api/admin", adminRoutes);
+
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
