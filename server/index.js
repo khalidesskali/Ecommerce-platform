@@ -34,6 +34,9 @@ connectDB();
 const authRoutes = require("./routes/auth");
 app.use("/api/auth", authRoutes);
 
+const products = require("./routes/products");
+app.use("/api/products", products);
+
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
