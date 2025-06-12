@@ -9,110 +9,115 @@ body {
 }
 
 @theme inline {
+  /* Border Radius */
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
+
+  /* Base Colors */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
   --color-card-foreground: var(--card-foreground);
   --color-popover: var(--popover);
   --color-popover-foreground: var(--popover-foreground);
-  --color-primary: var(--primary);
+
+  /* Brand Colors */
+  --color-primary: var(--primary); /* Onyx Black */
   --color-primary-foreground: var(--primary-foreground);
-  --color-secondary: var(--secondary);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-muted: var(--muted);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-accent: var(--accent);
+  --color-background: var(--background); /* Porcelain White */
+  --color-background-foreground: var(--background-foreground);
+  --color-accent: var(--accent); /* Soft Rose Gold */
   --color-accent-foreground: var(--accent-foreground);
-  --color-destructive: var(--destructive);
+  --color-highlight: var(--highlight); /* Mist Silver */
+  --color-highlight-foreground: var(--highlight-foreground);
+
+  /* UI Colors */
+  --color-neutral: var(--neutral); /* Ash Taupe */
+  --color-neutral-foreground: var(--neutral-foreground);
+  --color-cta: var(--cta); /* Ocean Slate Blue */
+  --color-cta-foreground: var(--cta-foreground);
+  --color-success: var(--success); /* Pale Sage */
+  --color-success-foreground: var(--success-foreground);
+  --color-danger: var(--danger); /* Terracotta Red */
+  --color-danger-foreground: var(--danger-foreground);
+
+  /* System Colors */
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
-  --color-chart-1: var(--chart-1);
-  --color-chart-2: var(--chart-2);
-  --color-chart-3: var(--chart-3);
-  --color-chart-4: var(--chart-4);
-  --color-chart-5: var(--chart-5);
-  --color-sidebar: var(--sidebar);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-ring: var(--sidebar-ring);
 }
 
 :root {
+  /* Base */
   --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+
+  /* Brand Colors */
+  --primary: #0f0f0f; /* Onyx Black */
+  --primary-foreground: #fafafa;
+  --background: #fafafa; /* Porcelain White */
+  --background-foreground: #0f0f0f;
+  --accent: #b76e79; /* Soft Rose Gold */
+  --accent-foreground: #fafafa;
+  --highlight: #d3d3d3; /* Mist Silver */
+  --highlight-foreground: #0f0f0f;
+
+  /* UI Colors */
+  --neutral: #cfcac2; /* Ash Taupe */
+  --neutral-foreground: #0f0f0f;
+  --cta: #4c5b5c; /* Ocean Slate Blue */
+  --cta-foreground: #fafafa;
+  --success: #b6cdbd; /* Pale Sage */
+  --success-foreground: #0f0f0f;
+  --danger: #e06e6e; /* Terracotta Red */
+  --danger-foreground: #fafafa;
+
+  /* System Colors */
+  --card: var(--background);
+  --card-foreground: var(--primary);
+  --popover: var(--background);
+  --popover-foreground: var(--primary);
+  --muted: var(--neutral);
+  --muted-foreground: var(--primary);
+  --destructive: var(--danger);
+  --border: var(--highlight);
+  --input: var(--highlight);
+  --ring: var(--accent);
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
+  /* Brand Colors */
+  --primary: #fafafa; /* Porcelain White */
+  --primary-foreground: #0f0f0f;
+  --background: #0f0f0f; /* Onyx Black */
+  --background-foreground: #fafafa;
+  --accent: #b76e79; /* Soft Rose Gold */
+  --accent-foreground: #fafafa;
+  --highlight: #2a2a2a; /* Darker Mist Silver */
+  --highlight-foreground: #fafafa;
+
+  /* UI Colors */
+  --neutral: #2a2a2a; /* Darker Ash Taupe */
+  --neutral-foreground: #fafafa;
+  --cta: #4c5b5c; /* Ocean Slate Blue */
+  --cta-foreground: #fafafa;
+  --success: #b6cdbd; /* Pale Sage */
+  --success-foreground: #0f0f0f;
+  --danger: #e06e6e; /* Terracotta Red */
+  --danger-foreground: #fafafa;
+
+  /* System Colors */
+  --card: var(--background);
+  --card-foreground: var(--primary);
+  --popover: var(--background);
+  --popover-foreground: var(--primary);
+  --muted: var(--neutral);
+  --muted-foreground: var(--primary);
+  --destructive: var(--danger);
+  --border: var(--highlight);
+  --input: var(--highlight);
+  --ring: var(--accent);
 }
 
 @layer base {
