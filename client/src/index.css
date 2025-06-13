@@ -24,29 +24,20 @@ body {
   --color-popover-foreground: var(--popover-foreground);
 
   /* Brand Colors */
-  --color-primary: var(--primary); /* Onyx Black */
+  --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
-  --color-background: var(--background); /* Porcelain White */
-  --color-background-foreground: var(--background-foreground);
-  --color-accent: var(--accent); /* Soft Rose Gold */
-  --color-accent-foreground: var(--accent-foreground);
-  --color-highlight: var(--highlight); /* Mist Silver */
-  --color-highlight-foreground: var(--highlight-foreground);
-
-  /* UI Colors */
-  --color-neutral: var(--neutral); /* Ash Taupe */
-  --color-neutral-foreground: var(--neutral-foreground);
-  --color-cta: var(--cta); /* Ocean Slate Blue */
-  --color-cta-foreground: var(--cta-foreground);
-  --color-success: var(--success); /* Pale Sage */
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-success: var(--success);
   --color-success-foreground: var(--success-foreground);
-  --color-danger: var(--danger); /* Terracotta Red */
+  --color-danger: var(--danger);
   --color-danger-foreground: var(--danger-foreground);
 
-  /* System Colors */
-  --color-border: var(--border);
-  --color-input: var(--input);
-  --color-ring: var(--ring);
+  /* UI Colors */
+  --color-text: var(--text);
+  --color-text-foreground: var(--text-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
 }
 
 :root {
@@ -54,77 +45,67 @@ body {
   --radius: 0.625rem;
 
   /* Brand Colors */
-  --primary: #0f0f0f; /* Onyx Black */
-  --primary-foreground: #fafafa;
-  --background: #fafafa; /* Porcelain White */
-  --background-foreground: #0f0f0f;
-  --accent: #b76e79; /* Soft Rose Gold */
-  --accent-foreground: #fafafa;
-  --highlight: #d3d3d3; /* Mist Silver */
-  --highlight-foreground: #0f0f0f;
+  --primary: #7c3aed; /* Vibrant Purple */
+  --primary-foreground: #ffffff;
+  --secondary: #f76e11; /* Vibrant Orange */
+  --secondary-foreground: #ffffff;
+  --success: #4caf50; /* Fresh Green */
+  --success-foreground: #ffffff;
+  --danger: #ff4b4b; /* Bright Red */
+  --danger-foreground: #ffffff;
 
   /* UI Colors */
-  --neutral: #cfcac2; /* Ash Taupe */
-  --neutral-foreground: #0f0f0f;
-  --cta: #4c5b5c; /* Ocean Slate Blue */
-  --cta-foreground: #fafafa;
-  --success: #b6cdbd; /* Pale Sage */
-  --success-foreground: #0f0f0f;
-  --danger: #e06e6e; /* Terracotta Red */
-  --danger-foreground: #fafafa;
+  --background: #f8f9fa; /* Light Gray */
+  --background-foreground: #7c3aed;
+  --text: #1e293b; /* Slate Gray */
+  --text-foreground: #ffffff;
+  --muted: #e9ecef; /* Soft Gray */
+  --muted-foreground: #6c757d; /* Medium Gray */
 
   /* System Colors */
   --card: var(--background);
-  --card-foreground: var(--primary);
+  --card-foreground: var(--text);
   --popover: var(--background);
-  --popover-foreground: var(--primary);
-  --muted: var(--neutral);
-  --muted-foreground: var(--primary);
-  --destructive: var(--danger);
-  --border: var(--highlight);
-  --input: var(--highlight);
-  --ring: var(--accent);
+  --popover-foreground: var(--text);
+  --border: var(--muted);
+  --input: var(--muted);
+  --ring: var(--secondary);
 }
 
 .dark {
   /* Brand Colors */
-  --primary: #fafafa; /* Porcelain White */
-  --primary-foreground: #0f0f0f;
-  --background: #0f0f0f; /* Onyx Black */
-  --background-foreground: #fafafa;
-  --accent: #b76e79; /* Soft Rose Gold */
-  --accent-foreground: #fafafa;
-  --highlight: #2a2a2a; /* Darker Mist Silver */
-  --highlight-foreground: #fafafa;
+  --primary: #a78bfa; /* Lighter Purple */
+  --primary-foreground: #ffffff;
+  --secondary: #ff8b3d; /* Lighter Orange */
+  --secondary-foreground: #ffffff;
+  --success: #66bb6a; /* Lighter Green */
+  --success-foreground: #ffffff;
+  --danger: #ff6b6b; /* Lighter Red */
+  --danger-foreground: #ffffff;
 
   /* UI Colors */
-  --neutral: #2a2a2a; /* Darker Ash Taupe */
-  --neutral-foreground: #fafafa;
-  --cta: #4c5b5c; /* Ocean Slate Blue */
-  --cta-foreground: #fafafa;
-  --success: #b6cdbd; /* Pale Sage */
-  --success-foreground: #0f0f0f;
-  --danger: #e06e6e; /* Terracotta Red */
-  --danger-foreground: #fafafa;
+  --background: #1a1b26; /* Dark Navy */
+  --background-foreground: #a78bfa;
+  --text: #f8f9fa; /* Light Gray */
+  --text-foreground: #1a1b26;
+  --muted: #2d3250; /* Deep Navy */
+  --muted-foreground: #adb5bd; /* Light Gray */
 
   /* System Colors */
   --card: var(--background);
-  --card-foreground: var(--primary);
+  --card-foreground: var(--text);
   --popover: var(--background);
-  --popover-foreground: var(--primary);
-  --muted: var(--neutral);
-  --muted-foreground: var(--primary);
-  --destructive: var(--danger);
-  --border: var(--highlight);
-  --input: var(--highlight);
-  --ring: var(--accent);
+  --popover-foreground: var(--text);
+  --border: var(--muted);
+  --input: var(--muted);
+  --ring: var(--secondary);
 }
 
 @layer base {
   * {
-    @apply border-border outline-ring/50;
+    @apply border-muted focus:outline-none focus-visible:ring-2 focus-visible:ring-secondary;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-text;
   }
 }
