@@ -1,6 +1,7 @@
 import React from "react";
 import Header from "../components/ui/sections/Header";
 import Hero from "../components/ui/sections/Hero";
+import FeaturedProducts from "../components/ui/sections/FeaturedProducts";
 
 const HomePage = () => {
   return (
@@ -8,6 +9,7 @@ const HomePage = () => {
       <Header />
       <main>
         <Hero />
+        <FeaturedProducts />
       </main>
     </>
   );
