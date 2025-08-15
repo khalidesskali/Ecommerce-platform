@@ -7,7 +7,7 @@ interface HeroProps {}
 const Hero: React.FC<HeroProps> = () => {
   return (
     <motion.section
-      className="relative  flex items-center justify-center overflow-hidden pt-16"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden pt-1"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8 }}

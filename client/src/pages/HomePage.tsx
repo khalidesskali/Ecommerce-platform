@@ -4,7 +4,7 @@ import Hero from "../components/ui/sections/Hero";
 import FeaturedProducts from "../components/ui/sections/FeaturedProducts";
 import ShopByCategories from "../components/ui/sections/ShopByCategories";
 
-const HomePage = () => {
+const HomePage: React.FC = () => {
   return (
     <>
       <Header />

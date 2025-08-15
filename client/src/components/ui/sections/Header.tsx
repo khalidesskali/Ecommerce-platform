@@ -1,11 +1,11 @@
-import React, { useState, memo, useCallback } from "react";
+import { useState, memo, useCallback } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import Navigation from "./Navigation";
+import Navigation from "./Navigation.tsx";
 import { CartIcon, MenuIcon, CloseIcon } from "../icons";
 
-const Header = memo(() => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+const Header: React.FC = memo(() => {
+  const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
 
   const toggleMenu = useCallback(() => {
     setIsMenuOpen((prev) => !prev);
