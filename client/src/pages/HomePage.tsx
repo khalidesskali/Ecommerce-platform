@@ -5,6 +5,7 @@ import FeaturedProducts from "../components/ui/sections/FeaturedProducts";
 import ShopByCategories from "../components/ui/sections/ShopByCategories";
 import SeasonalBanner from "../components/ui/sections/SeasonalBanner";
 import OurStory from "../components/ui/sections/OurStory";
+import NewsLetter from "@/components/ui/sections/NewsLetter";
 
 const HomePage: React.FC = () => {
   return (
@@ -16,6 +17,7 @@ const HomePage: React.FC = () => {
         <ShopByCategories />
         <SeasonalBanner />
         <OurStory />
+        <NewsLetter />
       </main>
     </>
   );
