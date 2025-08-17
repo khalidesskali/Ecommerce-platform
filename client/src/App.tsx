@@ -4,6 +4,7 @@ import HomePage from "./pages/HomePage";
 import About from "./pages/About";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
+import Contact from "./pages/Contact";
 
 const App = () => {
   return (
@@ -14,7 +15,7 @@ const App = () => {
         <Route path="about" element={<About />} />
         {/* <Route path="shop" element={<Shop />} /> */}
         {/* Add more routes here that should have Header + Footer */}
-        {/* <Route path="contact" element={<Contact />} /> */}
+        <Route path="contact" element={<Contact />} />
         {/* <Route path="product/:id" element={<ProductDetail />} /> */}
       </Route>
 
