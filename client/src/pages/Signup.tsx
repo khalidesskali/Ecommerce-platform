@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Eye, EyeOff, Mail, Lock, User, Phone } from "lucide-react";
+import { Input } from "../components/ui/input";
 
 const Signup: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -30,7 +31,7 @@ const Signup: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 flex items-center justify-center px-4 py-8">
+    <div className="min-h-screen bg-gradient-to-br from-background via-background to-muted/20 flex items-center justify-center px-4 py-8">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -40,138 +41,83 @@ const Signup: React.FC = () => {
         {/* Logo */}
         <div className="text-center mb-8">
           <Link to="/" className="inline-block">
-            <h1 className="text-4xl font-bold bg-gradient-to-r from-purple-400 via-pink-400 to-orange-400 bg-clip-text text-transparent">
+            <h1 className="text-4xl font-bold bg-gradient-to-r from-primary via-secondary to-secondary bg-clip-text text-transparent">
               StyleNest
             </h1>
           </Link>
         </div>
 
         {/* Signup Form */}
-        <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-8 shadow-2xl">
-          <h2 className="text-2xl font-bold text-white text-center mb-6">
+        <div className="bg-white dark:bg-card rounded-2xl shadow-xl p-8 border border-muted">
+          <h2 className="text-2xl font-bold text-text text-center mb-6">
             Create Account
           </h2>
-          <p className="text-slate-300 text-center mb-8">
+          <p className="text-muted-foreground text-center mb-8">
             Join StyleNest and start your fashion journey
           </p>
 
           <form onSubmit={handleSubmit} className="space-y-4">
             {/* Name Fields */}
             <div className="grid grid-cols-2 gap-4">
-              <div>
-                <label
-                  htmlFor="firstName"
-                  className="block text-sm font-medium text-slate-300 mb-2"
-                >
-                  First Name
-                </label>
-                <div className="relative">
-                  <User className="absolute left-3 top-1/2 transform -translate-y-1/2 text-slate-400 w-5 h-5" />
-                  <input
-                    type="text"
-                    id="firstName"
-                    name="firstName"
-                    value={formData.firstName}
-                    onChange={handleChange}
-                    className="w-full pl-10 pr-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-transparent transition-all duration-200"
-                    placeholder="First name"
-                    required
-                  />
-                </div>
-              </div>
-              <div>
-                <label
-                  htmlFor="lastName"
-                  className="block text-sm font-medium text-slate-300 mb-2"
-                >
-                  Last Name
-                </label>
-                <div className="relative">
-                  <User className="absolute left-3 top-1/2 transform -translate-y-1/2 text-slate-400 w-5 h-5" />
-                  <input
-                    type="text"
-                    id="lastName"
-                    name="lastName"
-                    value={formData.lastName}
-                    onChange={handleChange}
-                    className="w-full pl-10 pr-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-transparent transition-all duration-200"
-                    placeholder="Last name"
-                    required
-                  />
-                </div>
-              </div>
+              <Input
+                label="First Name"
+                name="firstName"
+                value={formData.firstName}
+                onChange={handleChange}
+                placeholder="First name"
+                required
+                leftIcon={<User className="w-5 h-5" />}
+              />
+              <Input
+                label="Last Name"
+                name="lastName"
+                value={formData.lastName}
+                onChange={handleChange}
+                placeholder="Last name"
+                required
+                leftIcon={<User className="w-5 h-5" />}
+              />
             </div>
 
             {/* Email Field */}
-            <div>
-              <label
-                htmlFor="email"
-                className="block text-sm font-medium text-slate-300 mb-2"
-              >
-                Email Address
-              </label>
-              <div className="relative">
-                <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-slate-400 w-5 h-5" />
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  className="w-full pl-10 pr-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-transparent transition-all duration-200"
-                  placeholder="Enter your email"
-                  required
-                />
-              </div>
-            </div>
+            <Input
+              label="Email Address"
+              type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              placeholder="Enter your email"
+              required
+              leftIcon={<Mail className="w-5 h-5" />}
+            />
 
             {/* Phone Field */}
-            <div>
-              <label
-                htmlFor="phone"
-                className="block text-sm font-medium text-slate-300 mb-2"
-              >
-                Phone Number
-              </label>
-              <div className="relative">
-                <Phone className="absolute left-3 top-1/2 transform -translate-y-1/2 text-slate-400 w-5 h-5" />
-                <input
-                  type="tel"
-                  id="phone"
-                  name="phone"
-                  value={formData.phone}
-                  onChange={handleChange}
-                  className="w-full pl-10 pr-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-transparent transition-all duration-200"
-                  placeholder="Enter your phone number"
-                  required
-                />
-              </div>
-            </div>
+            <Input
+              label="Phone Number"
+              type="tel"
+              name="phone"
+              value={formData.phone}
+              onChange={handleChange}
+              placeholder="Enter your phone number"
+              required
+              leftIcon={<Phone className="w-5 h-5" />}
+            />
 
             {/* Password Field */}
-            <div>
-              <label
-                htmlFor="password"
-                className="block text-sm font-medium text-slate-300 mb-2"
-              >
-                Password
-              </label>
-              <div className="relative">
-                <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-slate-400 w-5 h-5" />
-                <input
-                  type={showPassword ? "text" : "password"}
-                  id="password"
-                  name="password"
-                  value={formData.password}
-                  onChange={handleChange}
-                  className="w-full pl-10 pr-12 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-transparent transition-all duration-200"
-                  placeholder="Create a password"
-                  required
-                />
+            <Input
+              label="Password"
+              type={showPassword ? "text" : "password"}
+              name="password"
+              value={formData.password}
+              onChange={handleChange}
+              placeholder="Create a password"
+              required
+              leftIcon={<Lock className="w-5 h-5" />}
+              rightIcon={
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-slate-400 hover:text-white transition-colors duration-200"
+                  className="text-muted-foreground hover:text-text transition-colors duration-200"
                 >
                   {showPassword ? (
                     <EyeOff className="w-5 h-5" />
@@ -179,33 +125,24 @@ const Signup: React.FC = () => {
                     <Eye className="w-5 h-5" />
                   )}
                 </button>
-              </div>
-            </div>
+              }
+            />
 
             {/* Confirm Password Field */}
-            <div>
-              <label
-                htmlFor="confirmPassword"
-                className="block text-sm font-medium text-slate-300 mb-2"
-              >
-                Confirm Password
-              </label>
-              <div className="relative">
-                <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-slate-400 w-5 h-5" />
-                <input
-                  type={showConfirmPassword ? "text" : "password"}
-                  id="confirmPassword"
-                  name="confirmPassword"
-                  value={formData.confirmPassword}
-                  onChange={handleChange}
-                  className="w-full pl-10 pr-12 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-transparent transition-all duration-200"
-                  placeholder="Confirm your password"
-                  required
-                />
+            <Input
+              label="Confirm Password"
+              type={showConfirmPassword ? "text" : "password"}
+              name="confirmPassword"
+              value={formData.confirmPassword}
+              onChange={handleChange}
+              placeholder="Confirm your password"
+              required
+              leftIcon={<Lock className="w-5 h-5" />}
+              rightIcon={
                 <button
                   type="button"
                   onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-slate-400 hover:text-white transition-colors duration-200"
+                  className="text-muted-foreground hover:text-text transition-colors duration-200"
                 >
                   {showConfirmPassword ? (
                     <EyeOff className="w-5 h-5" />
@@ -213,29 +150,32 @@ const Signup: React.FC = () => {
                     <Eye className="w-5 h-5" />
                   )}
                 </button>
-              </div>
-            </div>
+              }
+            />
 
             {/* Terms and Conditions */}
             <div className="flex items-start">
               <input
                 type="checkbox"
                 id="terms"
-                className="w-4 h-4 text-purple-600 bg-white/10 border-white/20 rounded focus:ring-purple-400 focus:ring-2 mt-1"
+                className="w-4 h-4 text-primary bg-background border-muted rounded focus:ring-primary focus:ring-2 mt-1"
                 required
               />
-              <label htmlFor="terms" className="ml-2 text-sm text-slate-300">
+              <label
+                htmlFor="terms"
+                className="ml-2 text-sm text-muted-foreground"
+              >
                 I agree to the{" "}
                 <Link
                   to="/terms"
-                  className="text-purple-400 hover:text-purple-300"
+                  className="text-primary hover:text-primary/80"
                 >
                   Terms of Service
                 </Link>{" "}
                 and{" "}
                 <Link
                   to="/privacy"
-                  className="text-purple-400 hover:text-purple-300"
+                  className="text-primary hover:text-primary/80"
                 >
                   Privacy Policy
                 </Link>
@@ -247,7 +187,7 @@ const Signup: React.FC = () => {
               type="submit"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              className="w-full py-3 px-4 bg-gradient-to-r from-purple-500 to-pink-500 text-white font-semibold rounded-lg hover:from-purple-600 hover:to-pink-600 transition-all duration-300 shadow-lg hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-purple-400 focus:ring-offset-2 focus:ring-offset-slate-900 mt-6"
+              className="w-full py-3 px-4 bg-primary text-primary-foreground font-semibold rounded-lg hover:bg-primary/90 transition-all duration-200 shadow-lg hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 mt-6"
             >
               Create Account
             </motion.button>
@@ -255,14 +195,14 @@ const Signup: React.FC = () => {
 
           {/* Divider */}
           <div className="my-6 flex items-center">
-            <div className="flex-1 border-t border-white/20"></div>
-            <span className="px-4 text-sm text-slate-400">or</span>
-            <div className="flex-1 border-t border-white/20"></div>
+            <div className="flex-1 border-t border-muted"></div>
+            <span className="px-4 text-sm text-muted-foreground">or</span>
+            <div className="flex-1 border-t border-muted"></div>
           </div>
 
           {/* Social Signup */}
           <div className="space-y-3">
-            <button className="w-full py-3 px-4 bg-white/10 border border-white/20 text-white font-medium rounded-lg hover:bg-white/20 transition-all duration-200 flex items-center justify-center gap-3">
+            <button className="w-full py-3 px-4 bg-muted border border-muted text-text font-medium rounded-lg hover:bg-muted/80 transition-all duration-200 flex items-center justify-center gap-3">
               <svg className="w-5 h-5" viewBox="0 0 24 24">
                 <path
                   fill="currentColor"
@@ -286,11 +226,11 @@ const Signup: React.FC = () => {
           </div>
 
           {/* Sign In Link */}
-          <p className="mt-8 text-center text-slate-300">
+          <p className="mt-8 text-center text-muted-foreground">
             Already have an account?{" "}
             <Link
               to="/login"
-              className="text-purple-400 hover:text-purple-300 font-medium transition-colors duration-200"
+              className="text-primary hover:text-primary/80 font-medium transition-colors duration-200"
             >
               Sign in
             </Link>
