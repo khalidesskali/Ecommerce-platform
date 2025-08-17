@@ -9,7 +9,6 @@ router.get("/", async (req, res) => {
   try {
     const {
       category,
-      subcategory,
       minPrice,
       maxPrice,
       sort = "createdAt",
@@ -22,7 +21,6 @@ router.get("/", async (req, res) => {
     // Build query
     const query = {};
     if (category) query.category = category;
-    if (subcategory) query.subcategory = subcategory;
     if (minPrice || maxPrice) {
       query.price = {};
       if (minPrice) query.price.$gte = Number(minPrice);
@@ -183,8 +181,7 @@ router.post("/:id/reviews", auth, async (req, res) => {
 router.get("/categories/all", async (req, res) => {
   try {
     const categories = await Product.distinct("category");
-    const subcategories = await Product.distinct("subcategory");
-    res.json({ categories, subcategories });
+    res.json({ categories });
   } catch (error) {
     res
       .status(500)

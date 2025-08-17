@@ -25,11 +25,6 @@ const productSchema = new mongoose.Schema(
       required: true,
       enum: ["men", "women", "kids", "accessories"],
     },
-    subcategory: {
-      type: String,
-      required: true,
-      enum: ["shirts", "pants", "dresses", "jackets", "shoes", "accessories"],
-    },
     sizes: [
       {
         type: String,
@@ -101,6 +96,7 @@ productSchema.pre("save", async function (next) {
   next();
 });
 
-const Product = mongoose.model("Product", productSchema);
+const Product =
+  mongoose.models.Product || mongoose.model("Product", productSchema);
 
 module.exports = Product;
