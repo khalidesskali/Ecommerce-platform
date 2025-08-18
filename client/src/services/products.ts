@@ -1,8 +1,16 @@
-import axios from "axios";
+import { getFeaturedProducts } from "../api/products";
 
-export const getFeaturedProducts = async (): Promise<Product[]> => {
-  const response = await axios.get<Product[]>(
-    "http://localhost:3000/api/products/featured"
-  );
+interface Product {
+  id: number;
+  image: string;
+  title: string;
+  description: string;
+  price: number;
+  rating: number;
+  category: string;
+}
+
+export const getAvailableFeaturedProducts = async (): Promise<Product[]> => {
+  const response = await getFeaturedProducts();
   return response.data;
 };

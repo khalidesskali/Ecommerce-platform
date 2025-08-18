@@ -4,12 +4,12 @@ import { Link } from "react-router-dom";
 import ProductCardSkeleton from "../products/ProductsCardSkeleton";
 import ProductCard from "../products/ProductCard";
 import { useQuery } from "@tanstack/react-query";
-import { getFeaturedProducts } from "@/services/products";
+import { getAvailableFeaturedProducts } from "../../../services/products";
 
 interface Product {
   id: number;
   image: string;
-  name: string;
+  title: string;
   description: string;
   price: number;
   rating: number;
@@ -19,7 +19,7 @@ interface Product {
 const FeaturedProducts = memo<FeaturedProductsProps>(() => {
   const { data, isLoading, error } = useQuery<Product[], Error>({
     queryKey: ["products"],
-    queryFn: getFeaturedProducts,
+    queryFn: getAvailableFeaturedProducts,
   });
 
   if (error) {
