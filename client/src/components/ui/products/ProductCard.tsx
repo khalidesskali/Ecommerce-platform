@@ -1,15 +1,14 @@
-import React, { memo } from "react";
+import { memo } from "react";
 import { motion } from "framer-motion";
 import StarRating from "./StarRating";
 
 interface Product {
   id: number;
   image: string;
-  name: string;
+  title: string;
   description: string;
   price: number;
   rating: number;
-  tag: string;
   category: string;
 }
 
@@ -19,21 +18,6 @@ interface ProductCardProps {
 }
 
 const ProductCard = memo<ProductCardProps>(({ product, index }) => {
-  const getTagColor = (tag: string) => {
-    switch (tag) {
-      case "New":
-        return "bg-success text-success-foreground dark:bg-success dark:text-success-foreground";
-      case "Sale":
-        return "bg-danger text-danger-foreground dark:bg-danger dark:text-danger-foreground";
-      case "Featured":
-        return "bg-primary text-primary-foreground dark:bg-primary dark:text-primary-foreground";
-      case "Hot":
-        return "bg-secondary text-secondary-foreground dark:bg-secondary dark:text-secondary-foreground";
-      default:
-        return "bg-muted text-muted-foreground dark:bg-muted dark:text-muted-foreground";
-    }
-  };
-
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -50,23 +34,14 @@ const ProductCard = memo<ProductCardProps>(({ product, index }) => {
       <div className="relative overflow-hidden aspect-[4/5]">
         <motion.img
           src={product.image}
-          alt={product.name}
+          alt={product.title}
           className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
           loading="lazy"
         />
 
-        {/* Tag Badge */}
-        <div
-          className={`absolute top-3 left-3 px-2 py-1 rounded-full text-xs font-semibold ${getTagColor(
-            product.tag
-          )}`}
-        >
-          {product.tag}
-        </div>
-
         {/* Category Badge */}
         <div
-          className="absolute top-3 right-3 px-2 py-1 rounded-full text-xs font-medium
+          className="absolute top-3 right-3 px-2 py-1 capitalize rounded-full text-xs font-medium
          bg-background/80 dark:bg-background/80 text-text dark:text-text backdrop-blur-sm"
         >
           {product.category}
@@ -82,7 +57,7 @@ const ProductCard = memo<ProductCardProps>(({ product, index }) => {
           className="font-bold text-lg text-text dark:text-text line-clamp-1
          group-hover:text-primary dark:group-hover:text-primary transition-colors duration-200"
         >
-          {product.name}
+          {product.title}
         </h3>
 
         <p className="text-sm text-muted-foreground dark:text-muted-foreground line-clamp-2 leading-relaxed">
